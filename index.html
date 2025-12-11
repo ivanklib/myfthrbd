@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таймер до Дня Рождения папы</title>
+    <style>
+        body {
+            background-color: #FFDAB9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            background-image: linear-gradient(to bottom right, #ffb6c1, #ffdab9);
+            animation: pulse 2s infinite alternate;
+        }
+        .timer {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 1; }
+            to   { transform: scale(1.05); opacity: 0.9; }
+        }
+    </style>
+</head>
+<body>
+<div id="birthday-message"></div>
+<div id="countdown-timer" style="display:none;"></div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    const birthday = new Date('December 12, 2025');
+    const now = new Date();
+
+    // Вычисляем разницу между датами
+    let diffInMs = Math.abs(birthday - now);
+
+    // Проверяем точное совпадение с днем рождения
+    if(now.getFullYear() === 2025 && now.getMonth() === 11 && now.getDate() === 12){
+        // Сегодня День Рождения
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message';
+        messageDiv.innerHTML = '<h1>С Днём Рождения Папуля!!! ❤️🥳🎉🎉 Мы тебя любим!!!</h1>';
+        document.body.appendChild(messageDiv);
+    } else {
+        // До дня рождения ещё далеко
+        const timerDiv = document.createElement('div');
+        timerDiv.id = 'countdown-timer';
+        timerDiv.style.display = 'block'; // делаем видимым таймер
+        updateCountdown(timerDiv, diffInMs);
+        setInterval(() => {
+            diffInMs -= 1000; // каждые секунду уменьшаем значение
+            updateCountdown(timerDiv, diffInMs);
+        }, 1000);
+    }
+
+    function updateCountdown(div, ms) {
+        const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+
+        div.innerHTML = `
+            <p>Пока ещё не твой день рождения, подожди немного:</p>
+            <span class="timer">${days} дн., ${hours} ч., ${minutes} мин., ${seconds} сек.</span>
+        `;
+    }
+});
+</script>
+</body>
+</html>
