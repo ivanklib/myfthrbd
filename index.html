@@ -5,7 +5,9 @@
     <title>Таймер до Дня Рождения папы</title>
     <style>
         body {
-            background-color: #FFDAB9;
+            background-image: url('your_background_image.jpg'); /* заменить на свою фотографию */
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,24 +43,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const birthday = new Date('December 12, 2025');
     const now = new Date();
 
-    // Вычисляем разницу между датами
+    // Разница между датами
     let diffInMs = Math.abs(birthday - now);
 
-    // Проверяем точное совпадение с днем рождения
+    // Автоматически включаем музыку ТОЛЬКО в день рождения
     if(now.getFullYear() === 2025 && now.getMonth() === 11 && now.getDate() === 12){
-        // Сегодня День Рождения
+        // Создаем аудиопоток и ставим на авто-воспроизведение
+        const musicPlayer = new Audio('path_to_your_music_file.mp3'); // замена на путь к файлу вашей мелодии
+        musicPlayer.volume = 0.5; // регулировка громкости (можно убрать)
+        musicPlayer.loop = true; // повторение музыки
+        musicPlayer.play().catch(e => console.error('Ошибка воспроизведения:', e)); // Воспроизводим музыку
+
+        // Показываем поздравление
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message';
         messageDiv.innerHTML = '<h1>С Днём Рождения Папуля!!! ❤️🥳🎉🎉 Мы тебя любим!!!</h1>';
         document.body.appendChild(messageDiv);
     } else {
-        // До дня рождения ещё далеко
+        // Отображаем таймер обратного отсчета
         const timerDiv = document.createElement('div');
         timerDiv.id = 'countdown-timer';
-        timerDiv.style.display = 'block'; // делаем видимым таймер
+        timerDiv.style.display = 'block';
         updateCountdown(timerDiv, diffInMs);
         setInterval(() => {
-            diffInMs -= 1000; // каждые секунду уменьшаем значение
+            diffInMs -= 1000; // каждую секунду уменьшаем значение
             updateCountdown(timerDiv, diffInMs);
         }, 1000);
     }
