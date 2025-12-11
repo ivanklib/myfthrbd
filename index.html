@@ -2,53 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>День Рождения Папы</title>
-    <style>
-        body {
-            background-image: url('photo_2025-12-11_22-35-45.jpg'); /* твоя фотография */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .message {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white; /* белый цвет текста */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
-            animation: pulse 2s infinite alternate;
-        }
-        @keyframes pulse {
-            from { transform: scale(1); opacity: 1; }
-            to   { transform: scale(1.05); opacity: 0.9; }
-        }
-    </style>
+    <title>Поздравления папе</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="birthday-message"></div>
-
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    const birthday = new Date('December 12, 2025');
-    const now = new Date();
-
-    // Проверяем точную дату 12 декабря 2025 года
-    if(now.getFullYear() === 2025 && now.getMonth() === 11 && now.getDate() === 12){
-        // Создаём и добавляем сообщение
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message';
-        messageDiv.innerHTML = '<h1>С Днём Рождения Папуля!!! ❤️🥳🎉🎉 Мы тебя любим!!!</h1>';
-        document.getElementById('birthday-message').appendChild(messageDiv);
-    }
-});
-</script>
+    <div class="container">
+        <h1>ПАПА, МЫ ТЕБЯ ЛЮБИМ!</h1>
+        <p>От всей души поздравляем тебя с праздником!<br>
+           Желаем крепкого здоровья, счастья и благополучия.<br>
+           Пусть каждый день приносит радость и улыбки.</p>
+        
+        <!-- Индивидуальные поздравления -->
+        <ul>
+            <li><strong>Оксана:</strong> Дорогой муж, благодарю тебя за твою любовь и поддержку. Ты замечательный отец и супруг!</li>
+            <li><strong>Семён:</strong> Папа, ты самый смелый и сильный мужчина в моей жизни. Я горжусь тобой!</li>
+            <li><strong>Иван:</strong> Мой любимый папа, хочу сказать огромное спасибо за твои советы и помощь. Всегда буду рядом!</li>
+            <li><strong>Татьяна:</strong> Сынок, пусть твоя жизнь будет полна радости и успехов. Мы гордимся тобой!</li>
+            <li><strong>Анатолий:</strong> Хорошего настроения и бодрости духа, дорогой сын. Ты наше счастье и гордость!</li>
+        </ul>
+    </div>
 </body>
 </html>
