@@ -5,7 +5,7 @@
     <title>День Рождения Папы</title>
     <style>
         body {
-            background-image: url(''); /* используем указанное тобой фото */
+            background-image: url('photo_2025-12-11_22-35-45.jpg'); /* используй своё фото */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -16,8 +16,8 @@
             font-family: Arial, sans-serif;
         }
         .message {
-            position: relative; /* Устанавливаем позицию относительно тела документа */
-            z-index: 1; /* Приводим текст вперёд */
+            position: relative;
+            z-index: 1;
             text-align: center;
             color: white;
             padding: 20px;
@@ -33,6 +33,7 @@
     </style>
 </head>
 <body>
+<!-- Блок, куда будем добавлять поздравление -->
 <div id="birthday-message"></div>
 
 <script type="text/javascript">
@@ -41,4 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const now = new Date();
 
     // Проверяем точную дату 12 декабря 2025 года
-    if(now.getFullYear() === 2025 && now.getMonth() === 11 &&
+    if(now.getFullYear() === 2025 && now.getMonth() === 11 && now.getDate() === 12){
+        // Создаём и добавляем сообщение
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message';
+        messageDiv.innerHTML = '<h1>С Днём Рождения Папуля!!! ❤️🥳🎉🎉 Мы тебя любим!!!</h1>';
+        document.getElementById('birthday-message').appendChild(messageDiv);
+    }
+});
+</script>
+</body>
+</html>
